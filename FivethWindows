@@ -1,1 +1,100 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class fivthwindow extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					fivthwindow frame = new fivthwindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public fivthwindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 558, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 128));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("REVERSE STRING");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(203, 10, 165, 22);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblEnterAString = new JLabel("ENTER A STRING");
+		lblEnterAString.setForeground(new Color(255, 0, 0));
+		lblEnterAString.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblEnterAString.setBounds(144, 58, 165, 22);
+		contentPane.add(lblEnterAString);
+		
+		JLabel lblReversedString = new JLabel("REVERSED STRING");
+		lblReversedString.setForeground(new Color(255, 0, 0));
+		lblReversedString.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblReversedString.setBounds(162, 213, 178, 22);
+		contentPane.add(lblReversedString);
+		
+		JTextArea ta1 = new JTextArea();
+		ta1.setBounds(308, 60, 197, 22);
+		contentPane.add(ta1);
+		
+		JTextArea ta2 = new JTextArea();
+		ta2.setBounds(337, 215, 197, 22);
+		contentPane.add(ta2);
+		
+		JButton btnNewButton = new JButton("REVERSE STRING");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String str;
+				String sentence=ta1.getText();
+				char arr[]=sentence.toCharArray();
+				char arr2[]=new char[arr.length];
+				int j=arr2.length-1;
+				for(int i=0;i<=arr.length-1;i++)
+				{
+					arr2[j]=arr[i];
+					j--;
+				}
+				String str2;
+				str2=new String(arr2);
+				ta2.setText("Reversed String is"+" "+str2);
+				
+			}
+		});
+		btnNewButton.setBackground(new Color(0, 255, 0));
+		btnNewButton.setForeground(new Color(0, 0, 128));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnNewButton.setBounds(241, 130, 197, 31);
+		contentPane.add(btnNewButton);
+	}
+}
 
