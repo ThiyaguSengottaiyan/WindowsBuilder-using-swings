@@ -1,1 +1,164 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+
+public class firstwindow extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField tfa;
+	private JTextField tfb;
+	private JTextField tfr;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					firstwindow frame = new firstwindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public firstwindow() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("CALCULATOR");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(163, 10, 123, 22);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("A");
+		lblNewLabel_1.setForeground(new Color(255, 0, 0));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1.setBounds(108, 64, 45, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("B");
+		lblNewLabel_1_1.setForeground(new Color(255, 0, 0));
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1_1.setBounds(108, 97, 45, 13);
+		contentPane.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Result");
+		lblNewLabel_1_2.setForeground(new Color(255, 0, 0));
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1_2.setBounds(71, 135, 60, 22);
+		contentPane.add(lblNewLabel_1_2);
+		
+		tfa = new JTextField();
+		tfa.setBounds(163, 64, 96, 19);
+		contentPane.add(tfa);
+		tfa.setColumns(10);
+		
+		tfb = new JTextField();
+		tfb.setColumns(10);
+		tfb.setBounds(163, 97, 96, 19);
+		contentPane.add(tfb);
+		
+		tfr = new JTextField();
+		tfr.setColumns(10);
+		tfr.setBounds(163, 140, 96, 19);
+		contentPane.add(tfr);
+		
+		JButton btnNewButton = new JButton("ADD");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int var1=Integer.valueOf(tfa.getText());
+				int var2=Integer.valueOf(tfb.getText());
+				int res=var1+var2;
+				String result=String.valueOf(res);
+				tfr.setText(result);
+
+			}
+		});
+		btnNewButton.setForeground(new Color(0, 64, 128));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnNewButton.setBounds(0, 213, 85, 21);
+		contentPane.add(btnNewButton);
+		
+		JButton btnSub = new JButton("SUB");
+		btnSub.setForeground(new Color(0, 64, 128));
+		btnSub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int var1=Integer.valueOf(tfa.getText());
+				int var2=Integer.valueOf(tfb.getText());
+				int res=var1-var2;
+				String result=String.valueOf(res);
+				tfr.setText(result);
+			}
+		});
+		btnSub.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnSub.setBounds(82, 213, 85, 21);
+		contentPane.add(btnSub);
+		
+		JButton btnMul = new JButton("MUL");
+		btnMul.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int var1=Integer.valueOf(tfa.getText());
+				int var2=Integer.valueOf(tfb.getText());
+				int res=var1*var2;
+				String result=String.valueOf(res);
+				tfr.setText(result);
+			}
+		});
+		btnMul.setForeground(new Color(0, 64, 128));
+		btnMul.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnMul.setBounds(163, 213, 85, 21);
+		contentPane.add(btnMul);
+		
+		JButton btnDiv = new JButton("DIV");
+		btnDiv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Float var1=Float.valueOf(tfa.getText());
+				Float var2=Float.valueOf(tfb.getText());
+				Float res=var1/var2;
+				String result=String.valueOf(res);
+				tfr.setText(result);
+			}
+		});
+		btnDiv.setForeground(new Color(0, 64, 128))..;
+		btnDiv.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnDiv.setBounds(256, 213, 85, 21);
+		contentPane.add(btnDiv);
+		
+		JButton btnRem = new JButton("REM");
+		btnRem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int var1=Integer.valueOf(tfa.getText());
+				int var2=Integer.valueOf(tfb.getText());
+				int res=var1%var2;
+				String result=String.valueOf(res);
+				tfr.setText(result);
+			}
+		});
+		btnRem.setForeground(new Color(0, 64, 128));
+		btnRem.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnRem.setBounds(341, 213, 85, 21);
+		contentPane.add(btnRem);
+	}
+}
 
