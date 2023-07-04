@@ -1,1 +1,121 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Thirdwindow extends JFrame {
+
+	private JPanel contentPane;
+	/**
+	 * @wbp.nonvisual location=182,374
+	 */
+	private final JLabel lblEnterFiveNumber_1 = new JLabel("ENTER FIVE NUMBER");
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Thirdwindow frame = new Thirdwindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Thirdwindow() {
+		lblEnterFiveNumber_1.setForeground(Color.RED);
+		lblEnterFiveNumber_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 559, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("SEARCH");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(242, 10, 76, 22);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblEnterFiveNumber = new JLabel("ENTER FIVE NUMBER");
+		lblEnterFiveNumber.setForeground(new Color(255, 0, 0));
+		lblEnterFiveNumber.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblEnterFiveNumber.setBounds(39, 59, 198, 22);
+		contentPane.add(lblEnterFiveNumber);
+		
+		JLabel lblEnterKeyTo = new JLabel("ENTER KEY TO SEARCH");
+		lblEnterKeyTo.setForeground(new Color(255, 0, 0));
+		lblEnterKeyTo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblEnterKeyTo.setBounds(21, 110, 216, 22);
+		contentPane.add(lblEnterKeyTo);
+		
+		JLabel lblResult = new JLabel("RESULT");
+		lblResult.setForeground(new Color(255, 0, 0));
+		lblResult.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblResult.setBounds(161, 156, 76, 22);
+		contentPane.add(lblResult);
+		
+		JTextArea ta1 = new JTextArea();
+		ta1.setBounds(270, 61, 245, 22);
+		contentPane.add(ta1);
+		
+		JTextArea ta2 = new JTextArea();
+		ta2.setBounds(270, 112, 245, 22);
+		contentPane.add(ta2);
+		
+		JTextArea tar = new JTextArea();
+		tar.setBounds(270, 158, 245, 22);
+		contentPane.add(tar);
+		
+		JButton btnNewButton = new JButton("LINEAR SEARCH");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String sentence=ta1.getText();
+				String arr[]=sentence.split(" ");
+				String key=ta2.getText();	
+				String res ;
+				for(int i=0;i<=arr.length-1;i++)
+				{
+					if(Integer.valueOf(key)==Integer.valueOf(arr[i]))
+					{
+						res=arr[i];
+						tar.setText("Successfully Key found at the index "+i);
+						break;
+					}
+					else
+					{
+					   tar.setText("Key is not found");
+					}
+					
+				}
+				
+			}
+		});
+		btnNewButton.setBackground(new Color(128, 128, 64));
+		btnNewButton.setForeground(new Color(64, 0, 128));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnNewButton.setBounds(183, 222, 185, 31);
+		contentPane.add(btnNewButton);
+	}
+
+}
 
